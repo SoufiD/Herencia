@@ -1,4 +1,4 @@
-package com.clearminds.model;
+package com.clearminds.sdi.model;
 
 public class Persona {
 	private String cedula;

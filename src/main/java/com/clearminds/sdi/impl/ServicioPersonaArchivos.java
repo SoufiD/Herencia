@@ -1,9 +1,9 @@
-package com.clearminds.impl;
+package com.clearminds.sdi.impl;
 
-import com.clearminds.interfaces.ServicioPersona;
-import com.clearminds.model.Persona;
+import com.clearminds.sdi.interfaces.ServicioPersona;
+import com.clearminds.sdi.model.Persona;
 
-public abstract class ServicioersonaArchivos implements ServicioPersona{
+public class ServicioPersonaArchivos implements ServicioPersona{
 	
 	public boolean insertar(Persona persona){
 		System.out.println("Insertando persona en un archivo: "+persona);

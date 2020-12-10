@@ -1,6 +1,6 @@
-package com.clearminds.interfaces;
+package com.clearminds.sdi.interfaces;
 
-import com.clearminds.model.Persona;
+import com.clearminds.sdi.model.Persona;
 
 public interface ServicioPersona {
 	
