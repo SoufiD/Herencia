@@ -13,15 +13,29 @@ public class PersonaManager {
 	ServicioPersona serv;
 	
 	
+	public String lecturaClase(){
+		Properties p = new Properties();
+		String s = null;
+		try {
+			p.load(new FileReader("clases.properties"));
+			s= p.getProperty("clase");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return s;
+	}
+	
 	
 	public PersonaManager() throws InstanceException{
 		Class<?> clase;
-		Properties p = new Properties();
+		String cls=lecturaClase();
 		
 		try {
-
-			p.load(new FileReader("clases.properties"));
-			clase = Class.forName(p.getProperty("clase"));
+			clase = Class.forName(cls);
 			serv=(ServicioPersona) clase.newInstance();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -35,15 +49,7 @@ public class PersonaManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new InstanceException("Error al obtener una instancia de ServicioPersona");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw new InstanceException("Error al obtener el archivo");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			throw new InstanceException("Error al obtener el archivo");
-		}
+		} 
 
 	}
 	
